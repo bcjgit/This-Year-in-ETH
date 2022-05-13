@@ -6,17 +6,25 @@ const Content = () => {
     const [queryString,setQueryString] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [imageURL, setImageURL] = useState("");
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
             fetch("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD")
-            .then((data) => data.json())
+            .then((data) => {
+                if (data.status === 429) {
+                    setIsError(true);
+                }
+            return data.json();
+        })
             .then((data) => {
                 setEthPrice(Math.round(Number(data.USD)));
                 setQueryString(
                     encodeURIComponent(
                     `The year ${Math.round(Number(data.USD))}`));
                 setLastFetchTimestamp(Date.now()/1000);
+
+
             })
             .catch((err) => console.log(err))
         };
@@ -30,7 +38,14 @@ const Content = () => {
     useEffect(() => {
         const fetchData = async () => {
             fetch(`https://customsearch.googleapis.com/customsearch/v1?cx=${process.env.REACT_APP_CUSTOM_SEARCH_ENGINE_ID}&searchType=image&key=${process.env.REACT_APP_GOOGLE_IMG_API_KEY}&q=${queryString}&num=1`)
-            .then((data) => data.json())
+            .then((data) => {
+                if (data.status === 429) {
+                    setIsError(true);
+                }
+
+                return data.json();
+            }
+            )
             .then((data) => {
                 setImageURL(data.items[0].link);
             })
@@ -58,6 +73,13 @@ const Content = () => {
              <span className="font-medium opacity-50">Top Google image result for: </span> "The Year {ethPrice}"
          </div>
 
+            {
+                isError && (
+                    <div className="mx-auto w-fit text-xl text-white font-bold opacity-70 mt-5">
+                     🪦 Brian's API key ran out :( ... check back in a few minutes
+                    </div>
+                )
+            }
             <img src={imageURL} className="mx-auto mt-6" alt={`${ethPrice}`}/>
 
         </>
