@@ -1,4 +1,3 @@
-import { useCoingeckoPrice } from "@usedapp/coingecko";
 import { useEffect, useState } from "react";
 
 const Content = () => {
@@ -33,6 +32,7 @@ const Content = () => {
             .then((data) => data.json())
             .then((data) => {
                 setImageURL(data.items[0].link);
+                setIsLoading(false);
             })
             .catch((err) => console.log(err))
         };
@@ -41,7 +41,7 @@ const Content = () => {
             setIsLoading(true);
             fetchData();
         };
-    }, [queryString]);
+    }, [queryString, isLoading]);
 
     return (
         <>
@@ -58,7 +58,7 @@ const Content = () => {
              <span className="font-medium opacity-50">Top Google image result for: </span> "The Year {ethPrice}"
          </div>
 
-            <img src={imageURL} className="mx-auto mt-6"/>
+            <img src={imageURL} className="mx-auto mt-6" alt={`${ethPrice}`}/>
 
         </>
     );
