@@ -33,7 +33,6 @@ const Content = () => {
             .then((data) => data.json())
             .then((data) => {
                 setImageURL(data.items[0].link);
-                setIsLoading(false);
             })
             .catch((err) => console.log(err))
         };
