@@ -2469,7 +2469,7 @@
     isomorphic-fetch "^3.0.0"
     react "^17.0.1"
 
-"@usedapp/core@1.0.2":
+"@usedapp/core@1.0.2", "@usedapp/core@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@usedapp/core/-/core-1.0.2.tgz#89705fadd999c8933e1ef4a09a62b5ef90384cc2"
   integrity sha512-pvZnBtDtZvt1AiUbPZALkyiQVXi/qIcb7miQWFhvQKeqeCSDkzGJogzZDyBxgpkgpZW2uVgxOkQqIF/4PltJ0g==
