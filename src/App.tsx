@@ -3,7 +3,7 @@ import Content from "./components/Content";
 
 const App = () => {
   return (
-    <div className="min-h-screen h-fit w-screen bg-slate-800 p-5">
+    <div className="min-h-screen h-fit w-screen bg-zinc-800 p-5">
       <Content />
     </div>
   );
