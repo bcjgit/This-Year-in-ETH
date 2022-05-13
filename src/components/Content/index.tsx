@@ -65,7 +65,7 @@ const Content = () => {
                  <span className="ml-2 opacity-50">Inspired by </span> <a href="https://twitter.com/punk4156" className="text-white underline">@punk4156</a>
         </div>
         
-         <div className="mx-auto w-fit text-4xl text-white font-bold opacity-50">
+         <div className="mx-auto w-fit text-4xl text-white font-bold opacity-50 mt-3">
              ONE IMAGE. EVERY TICK. UNTIL MY API KEY RUNS OUT.
          </div>
 
