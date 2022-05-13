@@ -22,6 +22,7 @@ const Content = () => {
         };
 
         if ((Date.now()/1000  - lastFetchTimestamp) > 10) {
+            console.log("pooling price API");
             fetchData();
         };
     },[lastFetchTimestamp]);
