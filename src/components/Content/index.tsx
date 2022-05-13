@@ -47,7 +47,7 @@ const Content = () => {
         <>
         
          <div className="mx-auto w-fit text-xl text-white font-bold opacity-50">
-             ONE IMAGE. EVERY TICK. UNTIL MY API KEY RUNS OUT.
+             ONE IMAGE. EVERY TICK. UNTIL MY FREE TIER API KEY RUNS OUT.
          </div>
 
          <div className="mx-auto w-fit text-3xl text-white font-bold mt-6">
